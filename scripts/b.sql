@@ -1,0 +1,97 @@
+-- MySQL-compatible validation script with the same insert workload as scripts/a.sql
+
+CREATE DATABASE IF NOT EXISTS flexql_validation;
+USE flexql_validation;
+
+SHOW DATABASES;
+DROP TABLE IF EXISTS smoke_main;
+DROP TABLE IF EXISTS smoke_lookup;
+DROP TABLE IF EXISTS smoke_expiry;
+
+CREATE TABLE smoke_main(
+  ID INT PRIMARY KEY,
+  C001 VARCHAR(255),
+  C002 VARCHAR(255),
+  C003 VARCHAR(255),
+  C004 VARCHAR(255),
+  C005 VARCHAR(255),
+  C006 VARCHAR(255),
+  C007 VARCHAR(255)
+);
+
+CREATE TABLE smoke_lookup(
+  ID INT PRIMARY KEY,
+  TAG VARCHAR(255),
+  CREATED_AT DATETIME
+);
+
+CREATE TABLE smoke_expiry(
+  ID INT PRIMARY KEY,
+  NAME VARCHAR(255)
+);
+
+SHOW TABLES;
+
+INSERT INTO smoke_main VALUES (1, 'r00001_c001', 'r00001_c002', 'r00001_c003', 'r00001_c004', 'r00001_c005', 'r00001_c006', 'r00001_c007');
+INSERT INTO smoke_lookup VALUES (1, 'tag_00001', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (2, 'r00002_c001', 'r00002_c002', 'r00002_c003', 'r00002_c004', 'r00002_c005', 'r00002_c006', 'r00002_c007');
+INSERT INTO smoke_lookup VALUES (2, 'tag_00002', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (3, 'r00003_c001', 'r00003_c002', 'r00003_c003', 'r00003_c004', 'r00003_c005', 'r00003_c006', 'r00003_c007');
+INSERT INTO smoke_lookup VALUES (3, 'tag_00003', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (4, 'r00004_c001', 'r00004_c002', 'r00004_c003', 'r00004_c004', 'r00004_c005', 'r00004_c006', 'r00004_c007');
+INSERT INTO smoke_lookup VALUES (4, 'tag_00004', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (5, 'r00005_c001', 'r00005_c002', 'r00005_c003', 'r00005_c004', 'r00005_c005', 'r00005_c006', 'r00005_c007');
+INSERT INTO smoke_lookup VALUES (5, 'tag_00005', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (6, 'r00006_c001', 'r00006_c002', 'r00006_c003', 'r00006_c004', 'r00006_c005', 'r00006_c006', 'r00006_c007');
+INSERT INTO smoke_lookup VALUES (6, 'tag_00006', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (7, 'r00007_c001', 'r00007_c002', 'r00007_c003', 'r00007_c004', 'r00007_c005', 'r00007_c006', 'r00007_c007');
+INSERT INTO smoke_lookup VALUES (7, 'tag_00007', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (8, 'r00008_c001', 'r00008_c002', 'r00008_c003', 'r00008_c004', 'r00008_c005', 'r00008_c006', 'r00008_c007');
+INSERT INTO smoke_lookup VALUES (8, 'tag_00008', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (9, 'r00009_c001', 'r00009_c002', 'r00009_c003', 'r00009_c004', 'r00009_c005', 'r00009_c006', 'r00009_c007');
+INSERT INTO smoke_lookup VALUES (9, 'tag_00009', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (10, 'r00010_c001', 'r00010_c002', 'r00010_c003', 'r00010_c004', 'r00010_c005', 'r00010_c006', 'r00010_c007');
+INSERT INTO smoke_lookup VALUES (10, 'tag_00010', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (11, 'r00011_c001', 'r00011_c002', 'r00011_c003', 'r00011_c004', 'r00011_c005', 'r00011_c006', 'r00011_c007');
+INSERT INTO smoke_lookup VALUES (11, 'tag_00011', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (12, 'r00012_c001', 'r00012_c002', 'r00012_c003', 'r00012_c004', 'r00012_c005', 'r00012_c006', 'r00012_c007');
+INSERT INTO smoke_lookup VALUES (12, 'tag_00012', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (13, 'r00013_c001', 'r00013_c002', 'r00013_c003', 'r00013_c004', 'r00013_c005', 'r00013_c006', 'r00013_c007');
+INSERT INTO smoke_lookup VALUES (13, 'tag_00013', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (14, 'r00014_c001', 'r00014_c002', 'r00014_c003', 'r00014_c004', 'r00014_c005', 'r00014_c006', 'r00014_c007');
+INSERT INTO smoke_lookup VALUES (14, 'tag_00014', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (15, 'r00015_c001', 'r00015_c002', 'r00015_c003', 'r00015_c004', 'r00015_c005', 'r00015_c006', 'r00015_c007');
+INSERT INTO smoke_lookup VALUES (15, 'tag_00015', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (16, 'r00016_c001', 'r00016_c002', 'r00016_c003', 'r00016_c004', 'r00016_c005', 'r00016_c006', 'r00016_c007');
+INSERT INTO smoke_lookup VALUES (16, 'tag_00016', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (17, 'r00017_c001', 'r00017_c002', 'r00017_c003', 'r00017_c004', 'r00017_c005', 'r00017_c006', 'r00017_c007');
+INSERT INTO smoke_lookup VALUES (17, 'tag_00017', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (18, 'r00018_c001', 'r00018_c002', 'r00018_c003', 'r00018_c004', 'r00018_c005', 'r00018_c006', 'r00018_c007');
+INSERT INTO smoke_lookup VALUES (18, 'tag_00018', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (19, 'r00019_c001', 'r00019_c002', 'r00019_c003', 'r00019_c004', 'r00019_c005', 'r00019_c006', 'r00019_c007');
+INSERT INTO smoke_lookup VALUES (19, 'tag_00019', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (20, 'r00020_c001', 'r00020_c002', 'r00020_c003', 'r00020_c004', 'r00020_c005', 'r00020_c006', 'r00020_c007');
+INSERT INTO smoke_lookup VALUES (20, 'tag_00020', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (21, 'r00021_c001', 'r00021_c002', 'r00021_c003', 'r00021_c004', 'r00021_c005', 'r00021_c006', 'r00021_c007');
+INSERT INTO smoke_lookup VALUES (21, 'tag_00021', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (22, 'r00022_c001', 'r00022_c002', 'r00022_c003', 'r00022_c004', 'r00022_c005', 'r00022_c006', 'r00022_c007');
+INSERT INTO smoke_lookup VALUES (22, 'tag_00022', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (23, 'r00023_c001', 'r00023_c002', 'r00023_c003', 'r00023_c004', 'r00023_c005', 'r00023_c006', 'r00023_c007');
+INSERT INTO smoke_lookup VALUES (23, 'tag_00023', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (24, 'r00024_c001', 'r00024_c002', 'r00024_c003', 'r00024_c004', 'r00024_c005', 'r00024_c006', 'r00024_c007');
+INSERT INTO smoke_lookup VALUES (24, 'tag_00024', '2026-03-25 00:00:00');
+INSERT INTO smoke_main VALUES (25, 'r00025_c001', 'r00025_c002', 'r00025_c003', 'r00025_c004', 'r00025_c005', 'r00025_c006', 'r00025_c007');
+INSERT INTO smoke_lookup VALUES (25, 'tag_00025', '2026-03-25 00:00:00');
+
+-- MySQL does not support FlexQL's EXPIRES AT syntax, so this is a normal insert.
+INSERT INTO smoke_expiry VALUES (1, 'expired-row');
+
+SELECT * FROM smoke_main WHERE ID = 1;
+SELECT * FROM smoke_main WHERE ID = 25;
+SELECT ID FROM smoke_main WHERE C001 = 'r00025_c001';
+SELECT smoke_main.C001, smoke_lookup.TAG
+FROM smoke_main
+INNER JOIN smoke_lookup ON smoke_main.ID = smoke_lookup.ID
+WHERE smoke_lookup.ID = 25;
+SELECT * FROM smoke_expiry;
+SHOW TABLES FROM flexql_validation;
