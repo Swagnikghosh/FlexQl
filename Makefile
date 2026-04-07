@@ -41,13 +41,7 @@ SERVER_SOURCES := \
 	src/server/server.cpp \
 	$(COMMON_SOURCES)
 
-TEST_SOURCES := \
-	tests/test_queries.cpp \
-	src/client/api.cpp \
-	src/server/server.cpp \
-	$(COMMON_SOURCES)
-
-all: bin/flexql-server bin/flexql-client bin/test_queries bin/benchmark_flexql_real
+all: bin/flexql-server bin/flexql-client bin/benchmark_flexql_real
 
 bin/flexql-server: $(SERVER_SOURCES)
 	@mkdir -p bin build
@@ -58,10 +52,6 @@ bin/flexql-client: $(CLIENT_SOURCES)
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
 bin/benchmark_flexql_real: $(BENCHMARK_REAL_SOURCES)
-	@mkdir -p bin build
-	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
-
-bin/test_queries: $(TEST_SOURCES)
 	@mkdir -p bin build
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
