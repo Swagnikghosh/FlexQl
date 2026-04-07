@@ -41,7 +41,7 @@ SERVER_SOURCES := \
 	src/server/server.cpp \
 	$(COMMON_SOURCES)
 
-all: bin/flexql-server bin/flexql-client bin/benchmark_flexql_real
+all: bin/flexql-server bin/flexql-client bin/benchmark_flexql_real server benchmark
 
 bin/flexql-server: $(SERVER_SOURCES)
 	@mkdir -p bin build
@@ -55,8 +55,16 @@ bin/benchmark_flexql_real: $(BENCHMARK_REAL_SOURCES)
 	@mkdir -p bin build
 	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
 
+server: bin/flexql-server
+	@printf '%s\n' '#!/usr/bin/env bash' 'set -euo pipefail' '' 'ROOT_DIR="$$(cd "$$(dirname "$${BASH_SOURCE[0]}")" && pwd)"' '' 'if [[ ! -x "$${ROOT_DIR}/bin/flexql-server" ]]; then' '    echo "Missing bin/flexql-server. Run: make"' '    exit 1' 'fi' '' 'if [[ $$# -eq 0 ]]; then' '    exec "$${ROOT_DIR}/bin/flexql-server" 9000' 'fi' '' 'exec "$${ROOT_DIR}/bin/flexql-server" "$$@"' > $@
+	@chmod +x $@
+
+benchmark: bin/benchmark_flexql_real
+	@printf '%s\n' '#!/usr/bin/env bash' 'set -euo pipefail' '' 'ROOT_DIR="$$(cd "$$(dirname "$${BASH_SOURCE[0]}")" && pwd)"' '' 'if [[ ! -x "$${ROOT_DIR}/bin/benchmark_flexql_real" ]]; then' '    echo "Missing bin/benchmark_flexql_real. Run: make"' '    exit 1' 'fi' '' 'exec "$${ROOT_DIR}/bin/benchmark_flexql_real" "$$@"' > $@
+	@chmod +x $@
+
 clean:
-	rm -f bin/flexql-server bin/flexql-client bin/test_queries bin/benchmark_flexql_real
+	rm -f bin/flexql-server bin/flexql-client bin/test_queries bin/benchmark_flexql_real server benchmark
 	rm -rf data/databases
 
 .PHONY: all clean
