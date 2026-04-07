@@ -15,6 +15,10 @@
 # Benchmark reference folder
 /FlexQL_Benchmark_Unit_Tests/
 
+# Project folders to ignore
+/scripts/
+/tests/
+
 # Runtime data
 /data/databases/
 /data/indexes/
@@ -38,8 +42,10 @@
 
 # Generated PDFs and docs
 /design_doc.pdf
+/design_doc.tex
 /design-lab-project-2.pdf
 /FlexQL_Benchmark_Unit_Tests/design-lab-project-2.pdf
+/implementation plan.pdf
 
 # Markdown docs to ignore
 *.md
