@@ -11,6 +11,15 @@ expiration.
 make
 ```
 
+## Benchmark Code Location
+
+If you want to test the server using the benchmark reference code, paste or
+update the benchmark code in:
+
+```bash
+FlexQL_Benchmark_Unit_Tests/benchmark_flexql.cpp
+```
+
 ## Run
 
 You must start the server first, then run the benchmark or unit-test workflow
